@@ -57,7 +57,7 @@ class SharePopup extends React.Component {
 
   render () {
     const text = this.props.text + ' ' + this.props.url
-    const gmailURL = `https://mail.google.com/mail/u/0/?view=cm&ui=2&tf=0&fs=1&su=${this.props.text}&body=Check out this awesome property %0A${this.props.url}`
+    const gmailURL = `https://mail.google.com/mail/u/0/?view=cm&ui=2&tf=0&fs=1&su=${this.props.subject}&body=${this.props.text}%0A${this.props.url}`
     return (
       <div className='share-popup'>
         {this.props.shareModalOpen && <Visibility ref={(node) => { this.visibility = node }} />}
@@ -136,13 +136,14 @@ ShareBtn.propTypes = {
   url: React.PropTypes.string,
   text: React.PropTypes.string,
   className: React.PropTypes.string,
-  displayText: React.PropTypes.string,
+  displayText: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.element]),
   onShareBtnClick: React.PropTypes.func
 }
 
 ShareBtn.defaultProps = {
   url: '',
   text: '',
+  subject: '',
   className: '',
   displayText: 'Share',
   onShareBtnClick: () => {}
@@ -151,6 +152,7 @@ ShareBtn.defaultProps = {
 SharePopup.propTypes = {
   url: React.PropTypes.string,
   text: React.PropTypes.string,
+  subject: React.PropTypes.string,
   shareModalOpen: React.PropTypes.bool,
   sharedBy: React.PropTypes.func
 }
