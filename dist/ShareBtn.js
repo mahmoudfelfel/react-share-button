@@ -103,7 +103,7 @@ var SharePopup = function (_React$Component) {
       var gmailURL = 'https://mail.google.com/mail/u/0/?view=cm&ui=2&tf=0&fs=1&su=' + this.props.subject + '&body=' + this.props.text + '%0A' + this.props.url;
       return _react2.default.createElement(
         'div',
-        { className: 'share-popup' },
+        { className: 'share-popup', onClick: this.props.onClick },
         this.props.shareModalOpen && _react2.default.createElement(_visibility2.default, { ref: function ref(node) {
             _this3.visibility = node;
           } }),

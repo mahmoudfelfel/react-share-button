@@ -59,7 +59,7 @@ class SharePopup extends React.Component {
     const text = this.props.text + ' ' + this.props.url
     const gmailURL = `https://mail.google.com/mail/u/0/?view=cm&ui=2&tf=0&fs=1&su=${this.props.subject}&body=${this.props.text}%0A${this.props.url}`
     return (
-      <div className='share-popup'>
+      <div className='share-popup' onClick={this.props.onClick}>
         {this.props.shareModalOpen && <Visibility ref={(node) => { this.visibility = node }} />}
         <a className='sp-tab' href={`whatsapp://send?text=${text}`} onClick={this.whatsappClicked}>
           <div className='icon whatsapp' />
